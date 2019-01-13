@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -9,9 +9,6 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
-    },
-    devServer: {
-        hot: true
     },
     module: {
         rules: [
@@ -24,31 +21,19 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                use: [
-                    {
+                use: {
                         loader: "html-loader",
                         options: { minimize: true }
                     }
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
-                    { loader: 'sass-loader' }
-                ]
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                use: [
-                    { loader: 'file-loader' }
-                ]
+                use: { loader: 'file-loader' }
             }
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
