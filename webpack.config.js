@@ -1,20 +1,34 @@
 const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/index.js'
+        app:  './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        fileName: '[name].js'
+        filename: '[name].js'
     },
-    modules: {
+    devServer: {
+        hot: true
+    },
+    module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /node_modukes/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            },
+            {
+                test: /\.html$/,
                 use: [
-                    { loader: 'babel-loader' }
+                    {
+                        loader: "html-loader",
+                        options: { minimize: true }
+                    }
                 ]
             },
             {
@@ -34,6 +48,10 @@ module.exports = {
         ]
     },
     plugins: [
-
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            template: "./src/index.html",
+            filename: "./index.html"
+        })
     ]
 }
