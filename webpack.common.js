@@ -7,8 +7,8 @@ module.exports = {
         app:  './src/index.js'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        path: path.resolve(__dirname, './dist'),
+        filename: 'build.js'
     },
     module: {
         rules: [
@@ -19,13 +19,13 @@ module.exports = {
                     loader: 'babel-loader'
                 }
             },
-            {
-                test: /\.html$/,
-                use: {
-                        loader: "html-loader",
-                        options: { minimize: true }
-                    }
-            },
+            // {
+            //     test: /\.html$/,
+            //     use: {
+            //             loader: "html-loader",
+            //             options: { minimize: true }
+            //         }
+            // },
             {
                 test: /\.(png|jpg|gif|svg)$/,
                 use: { loader: 'file-loader' }
@@ -35,7 +35,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./index.html",
             filename: "./index.html"
         })
     ]
