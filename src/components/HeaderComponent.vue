@@ -6,6 +6,7 @@
 
 <script>
     export default {
+        name: 'HeaderComponent',
         data: function() {
             return {
                 message: 'Test'
