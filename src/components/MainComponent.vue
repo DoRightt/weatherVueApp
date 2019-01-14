@@ -1,0 +1,45 @@
+<template>
+    <div class="main">
+        <div class="current-location">Погода в городе - <span>{{location}}</span> на сегодня</div>
+        <div class="td-weather__wrapper">
+            <WeatherCurrentComponent />
+            <WeatherCurrentDayComponent />
+        </div>
+        <h2 class="main__title">Прогноз на неделю</h2>
+        <WeatherCurrentWeekComponent />
+    </div>
+
+</template>
+
+<script>
+    import WeatherCurrentComponent from './WeatherCurrentComponent.vue';
+    import WeatherCurrentDayComponent from './WeatherCurrentDayComponent.vue';
+    import WeatherCurrentWeekComponent from './WeatherCurrentWeekComponent.vue';
+
+    export default {
+        components: {
+            'WeatherCurrentComponent': WeatherCurrentComponent,
+            'WeatherCurrentDayComponent': WeatherCurrentDayComponent,
+            'WeatherCurrentWeekComponent': WeatherCurrentWeekComponent
+        },
+        props: {
+            weather: Object,
+            location: [String, Object]
+        },
+        methods: {
+
+        },
+        mounted() {
+
+        },
+        data: function() {
+            return {
+
+            }
+        },
+        computed: {
+
+        },
+        name: 'MainComponent'
+    }
+</script>

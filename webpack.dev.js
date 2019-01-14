@@ -12,6 +12,13 @@ module.exports = merge(common, {
                 loader: 'vue-loader'
             },
             {
+                test: /\.css/,
+                use: [
+                    { loader: 'vue-style-loader' },
+                    { loader: 'css-loader' }
+                ]
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     { loader: 'vue-style-loader' },
