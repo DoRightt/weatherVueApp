@@ -2,7 +2,7 @@
     <div class="main">
         <div class="current-location">Погода в городе - <span>{{location}}</span> на сегодня</div>
         <div class="td-weather__wrapper">
-            <WeatherCurrentComponent />
+            <WeatherCurrentComponent  v-bind:weather="weather" />
             <WeatherCurrentDayComponent />
         </div>
         <h2 class="main__title">Прогноз на неделю</h2>

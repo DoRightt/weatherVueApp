@@ -30,18 +30,25 @@
             },
             checkWeatherCatalog: function() {
                 var th = this;
-                if (Object.keys(this.state.weatherCatalog).length === 0) {
-                    setTimeout(function() {
-                        fetch(th.state.queryString)
-                                .then(function(response) { return response.json() })
-                                .then(function(responseJson) { th.state.weatherCatalog = responseJson })
-                                .catch( function (error)  { console.log(error)});
 
-                        fetch(th.state.queryStringTwo)
-                                .then(function(response) { return response.json() })
-                                .then(function(responseJson) { th.state.weatherCatalogTwo = responseJson })
-                                .catch( function (error)  { console.log(error)});
-                    }, 0)
+
+
+                function sendFetch() {
+                    console.log('step', th.state.weatherCatalog)
+                    fetch(th.state.queryString)
+                            .then(function(response) { return response.json() })
+                            .then(function(responseJson) { th.state.weatherCatalog = responseJson })
+                            .then(function(responseJson) { clearInterval(sendInterval) })
+                            .catch( function (error)  { console.log(error)});
+
+                    fetch(th.state.queryStringTwo)
+                            .then(function(response) { return response.json() })
+                            .then(function(responseJson) { th.state.weatherCatalogTwo = responseJson })
+                            .catch( function (error)  { console.log(error)});
+                }
+
+                if (Object.keys(th.state.weatherCatalog).length === 0) {
+                    var sendInterval = setInterval(sendFetch, 1000)
                 };
 
                 if (Object.keys(this.state.userLocation).length === 0) {
@@ -60,7 +67,7 @@
                 state: {
                     city: '',
                     lng: '',
-                    key: 'b1091a97aa43fba0a1d63cffbf94913b',
+                    key: 'ab6338e8bd1a7191fda2d2ceaed39a93',
                     // keyTwo: 'f7f36a0c7c3e4214a5e193731182312',
                     keyTwo: 'dd6301427900459c863160646190201',
                     coords: [],
