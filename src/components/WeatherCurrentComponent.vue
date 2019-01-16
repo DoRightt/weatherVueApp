@@ -1,5 +1,5 @@
 <template>
-    <div class="currentWeather-block">
+    <div class="currentWeather-block" v-bind:style="{backgroundImage: bgStyle}">
         <div class="currentWeather__date-block">
             <div>
                 Cейчас <span class="currentWeather__time">{{time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}}</span>
@@ -8,7 +8,7 @@
             </div>
         </div>
         <div clase="weather-prop-name weather-prop-name--main">
-            <img class="weather-icon" src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/weather-icon.png" alt=""/>
+            <img class="weather-icon" :src="imageUrl" alt=""/>
             <span class="weather-prop-value weather-prop-value--temp">{{curTemperature}}&#176;</span>
         </div>
         <p class="weather--more">{{weatherReview}}</p>
@@ -45,6 +45,12 @@
             upTime: function() {
                 var th = this;
                 setInterval(function() {th.time = new Date()}, 1000)
+            },
+            imageUrl: function() {
+                return this.iconSet[this.getProperty('icon')];
+            },
+            bgStyle: function() {
+                return `url('${this.windowBg[this.getProperty('icon')]}')`
             }
         },
         methods: {
@@ -68,6 +74,30 @@
                     'clear-day': 'Ясное небо',
                     'clear-night': 'Ясное небо'
                 },
+                iconSet: {
+                    'rain': require('../image/rain.png'),
+                    'snow': require('../image/snow.png'),
+                    'cloudy': require('../image/cloud.png'),
+                    'partly-cloudy-day': require('../image/cloudy.png'),
+                    'partly-cloudy-night': require('../image/nightCloudy.png'),
+                    'sleet': require('../image/nightSnowRain.png'),
+                    'wind': require('../image/wind.png'),
+                    'fog': require('../image/fog.png'),
+                    'clear-day': require('../image/sun.png'),
+                    'clear-night': require('../image/moon.png')
+                },
+                windowBg: {
+                    'rain': require('../image/rainbg.jpg'),
+                    'snow': require('../image/snowbg.jpg'),
+                    'cloudy': require('../image/cloudybg.jpg'),
+                    'partly-cloudy-day': require('../image/partlycloudybg.jpg'),
+                    'partly-cloudy-night': require('../image/partlycloudybg.jpg'),
+                    'sleet': require('../image/rainbg.jpg'),
+                    'wind': require('../image/windbg.jpg'),
+                    'fog': require('../image/fogbg.jpg'),
+                    'clear-day': require('../image/clearDaybg.jpg'),
+                    'clear-night': require('../image/clearnightbg.png')
+                }
             }
         }
     }

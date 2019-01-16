@@ -35,6 +35,7 @@
 
                 function sendFetch() {
                     console.log('step', th.state.weatherCatalog)
+
                     fetch(th.state.queryString)
                             .then(function(response) { return response.json() })
                             .then(function(responseJson) { th.state.weatherCatalog = responseJson })
