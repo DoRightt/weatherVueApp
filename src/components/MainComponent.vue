@@ -7,6 +7,7 @@
         </div>
         <h2 class="main__title">Прогноз на неделю</h2>
         <WeatherCurrentWeekComponent v-bind:weather="weather" />
+        <WeatherTomorrowComponent v-bind:weatherTwo="weatherTwo" />
     </div>
 
 </template>
@@ -15,15 +16,18 @@
     import WeatherCurrentComponent from './WeatherCurrentComponent.vue';
     import WeatherCurrentDayComponent from './WeatherCurrentDayComponent.vue';
     import WeatherCurrentWeekComponent from './WeatherCurrentWeekComponent.vue';
+    import WeatherTomorrowComponent from './WeatherTomorrowComponent.vue';
 
     export default {
         components: {
             'WeatherCurrentComponent': WeatherCurrentComponent,
             'WeatherCurrentDayComponent': WeatherCurrentDayComponent,
-            'WeatherCurrentWeekComponent': WeatherCurrentWeekComponent
+            'WeatherCurrentWeekComponent': WeatherCurrentWeekComponent,
+            'WeatherTomorrowComponent': WeatherTomorrowComponent,
         },
         props: {
             weather: Object,
+            weatherTwo: Object,
             location: [String, Object]
         },
         methods: {

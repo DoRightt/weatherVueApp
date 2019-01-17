@@ -3,6 +3,7 @@
         <HeaderComponent></HeaderComponent>
         <MainComponent
                 v-bind:weather="state.weatherCatalog"
+                v-bind:weatherTwo="state.weatherCatalogTwo"
                 v-bind:location="state.userLocation"
         ></MainComponent>
     </div>
