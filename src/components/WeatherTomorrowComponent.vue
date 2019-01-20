@@ -57,9 +57,9 @@
 
                         if (firstUrl.indexOf('snow') > -1 || firstUrl.indexOf('Blizzard') > -1) {
                             firstUrl = 'snow'
-                        } else if (firstUrl.indexOf('Partly cloudy') > -1 && el > 2 && el < 7) {
+                        } else if (firstUrl.indexOf('Partly cloudy') > -1) {
                             firstUrl = 'partly-cloudy-day'
-                        } else if (firstUrl.indexOf('Partly cloudy') > -1 && !(el > 2 && el < 7)) {
+                        } else if (firstUrl.indexOf('Partly cloudy') > -1) {
                             firstUrl = 'partly-cloudy-night'
                         } else if (firstUrl.indexOf('Cloudy') > -1 || firstUrl.indexOf('Overcast') > -1) {
                             firstUrl = 'cloudy'
