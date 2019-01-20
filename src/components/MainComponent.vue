@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div>
         <div class="current-location">Погода в городе - <span>{{location}}</span> на сегодня</div>
         <div class="td-weather__wrapper">
             <WeatherCurrentComponent  v-bind:weather="weather" />
@@ -7,12 +7,11 @@
         </div>
         <h2 class="main__title">Прогноз на неделю</h2>
         <WeatherCurrentWeekComponent v-bind:weather="weather" />
-        <WeatherTomorrowComponent v-bind:weatherTwo="weatherTwo" />
-        <WeatherTenDaysComponent v-bind:weatherTwo="weatherTwo" />
-        <WeatherTwoWeeksComponent v-bind:weatherTwo="weatherTwo" />
-        <WeatherThreeDaysComponent v-bind:weatherTwo="weatherTwo" />
+        <!--<WeatherTomorrowComponent v-bind:weatherTwo="weatherTwo" />-->
+        <!--<WeatherTenDaysComponent v-bind:weatherTwo="weatherTwo" />-->
+        <!--<WeatherTwoWeeksComponent v-bind:weatherTwo="weatherTwo" />-->
+        <!--<WeatherThreeDaysComponent v-bind:weatherTwo="weatherTwo" />-->
     </div>
-
 </template>
 
 <script>
