@@ -32,7 +32,7 @@
 
 <script>
     export default {
-        name: 'WeatherTenDaysComponent',
+        name: 'WeatherTwoWeeksComponent',
         props: {
             weatherTwo: Object
         },
@@ -276,6 +276,66 @@
                         windMax:  this.daysMaxWind[9],
                         precip: this.setDaysObjProp(9, 'totalSnow_cm'),
                         isWeekend: this.getDaysOfWeek[9] === 0 || this.getDaysOfWeek[9] === 6,
+                        htmlTemplateWind: `<div class="sep-line"></div>`,
+                        htmlTemplatePrecip: `<div class="sep-line"></div>`,
+                        isShow: false,
+                        isFirst: false
+                    },
+                    '11': {
+                        date: this.setDaysObjProp(10, 'date').split('-')[2],
+                        day: this.getDaysOfWeek[10],
+                        month: this.setDaysObjProp(10, 'date').split('-')[1] - 1,
+                        temperatureMax: this.setDaysObjProp(10, 'maxtempC'),
+                        temperatureMin: this.setDaysObjProp(10, 'mintempC'),
+                        icon: this.iconSet[this.icons[10]],
+                        windMax:  this.daysMaxWind[10],
+                        precip: this.setDaysObjProp(10, 'totalSnow_cm'),
+                        isWeekend: this.getDaysOfWeek[10] === 0 || this.getDaysOfWeek[10] === 6,
+                        htmlTemplateWind: `<div class="sep-line"></div>`,
+                        htmlTemplatePrecip: `<div class="sep-line"></div>`,
+                        isShow: false,
+                        isFirst: false
+                    },
+                    '12': {
+                        date: this.setDaysObjProp(11, 'date').split('-')[2],
+                        day: this.getDaysOfWeek[11],
+                        month: this.setDaysObjProp(11, 'date').split('-')[1] - 1,
+                        temperatureMax: this.setDaysObjProp(11, 'maxtempC'),
+                        temperatureMin: this.setDaysObjProp(11, 'mintempC'),
+                        icon: this.iconSet[this.icons[11]],
+                        windMax:  this.daysMaxWind[11],
+                        precip: this.setDaysObjProp(11, 'totalSnow_cm'),
+                        isWeekend: this.getDaysOfWeek[11] === 0 || this.getDaysOfWeek[11] === 6,
+                        htmlTemplateWind: `<div class="sep-line"></div>`,
+                        htmlTemplatePrecip: `<div class="sep-line"></div>`,
+                        isShow: false,
+                        isFirst: false
+                    },
+                    '13': {
+                        date: this.setDaysObjProp(12, 'date').split('-')[2],
+                        day: this.getDaysOfWeek[12],
+                        month: this.setDaysObjProp(12, 'date').split('-')[1] - 1,
+                        temperatureMax: this.setDaysObjProp(12, 'maxtempC'),
+                        temperatureMin: this.setDaysObjProp(12, 'mintempC'),
+                        icon: this.iconSet[this.icons[12]],
+                        windMax:  this.daysMaxWind[12],
+                        precip: this.setDaysObjProp(12, 'totalSnow_cm'),
+                        isWeekend: this.getDaysOfWeek[12] === 0 || this.getDaysOfWeek[12] === 6,
+                        htmlTemplateWind: `<div class="sep-line"></div>`,
+                        htmlTemplatePrecip: `<div class="sep-line"></div>`,
+                        isShow: false,
+                        isFirst: false
+                    },
+                    '14': {
+                        date: this.setDaysObjProp(13, 'date').split('-')[2],
+                        day: this.getDaysOfWeek[13],
+                        month: this.setDaysObjProp(13, 'date').split('-')[1] - 1,
+                        temperatureMax: this.setDaysObjProp(13, 'maxtempC'),
+                        temperatureMin: this.setDaysObjProp(13, 'mintempC'),
+                        icon: this.iconSet[this.icons[13]],
+                        windMax:  this.daysMaxWind[13],
+                        precip: this.setDaysObjProp(13, 'totalSnow_cm'),
+                        isWeekend: this.getDaysOfWeek[13] === 0 || this.getDaysOfWeek[13] === 6,
                         htmlTemplateWind: `<div class="sep-line"></div>`,
                         htmlTemplatePrecip: `<div class="sep-line"></div>`,
                         isShow: false,

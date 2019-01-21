@@ -1,11 +1,19 @@
 <template>
-    <div id="app" @click="checkWeatherCatalog">
+    <div id="app">
         <HeaderComponent></HeaderComponent>
-        <MainComponent
-                v-bind:weather="state.weatherCatalog"
-                v-bind:weatherTwo="state.weatherCatalogTwo"
-                v-bind:location="state.userLocation"
-        ></MainComponent>
+        <!--<MainComponent-->
+                <!--v-bind:weather="state.weatherCatalog"-->
+                <!--v-bind:weatherTwo="state.weatherCatalogTwo"-->
+                <!--v-bind:location="state.userLocation"-->
+        <!--&gt;</MainComponent>-->
+        <div class="main">
+            <router-view
+                    v-bind:weather="state.weatherCatalog"
+                    v-bind:weatherTwo="state.weatherCatalogTwo"
+                    v-bind:location="state.userLocation"
+            ></router-view>
+        </div>
+
     </div>
 </template>
 
@@ -16,7 +24,8 @@
     export default {
         components: {
             'HeaderComponent': HeaderComponent,
-            'MainComponent': MainComponent
+            'MainComponent': MainComponent,
+            props: true
         },
         methods: {
             setPosition: function() {
