@@ -1,6 +1,9 @@
 <template>
     <div id="app">
         <HeaderComponent></HeaderComponent>
+        <!--<form onSubmit={this.handleSubmit}>-->
+            <!--<input onChange={this.onChange} type="text" placeholder="Поиск по городу" v-model="userLocation" />-->
+        <!--</form>-->
         <!--<MainComponent-->
                 <!--v-bind:weather="state.weatherCatalog"-->
                 <!--v-bind:weatherTwo="state.weatherCatalogTwo"-->

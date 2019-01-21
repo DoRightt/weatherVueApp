@@ -1,31 +1,34 @@
 <template>
-    <div class="current-week__block cweek-block cweek-block--ten tomorrow">
-        <div class="cweek-block__weather">
-            <div class="current-week__item cweek-item cweek-item--first" v-for="hour in hours">
-                <div class="cweek-item__date">
-                    <span class="cdate__day-of-week">{{hour.hour}}</span>
-                </div>
-                <div class="cweek-item__icon">
-                    <img :src="hour.icon" alt=""/>
-                </div>
-                <div class="cweek-item__temp">
-                    <div class="temp__day">{{hour.temperature}}&#176;</div>
-                </div>
-                <div class="cweek-item__resume">
-                    {{hour.review}}
-                </div>
-                <div class="current-day__separator" v-html="hour.htmlTemplateWind">
-                </div>
-                <div class="thday-block__wind">
-                    <div class="thday__item">
-                        <div class="thday-item__wind">{{hour.wind}}</div>
+    <div>
+        <div class="current-location">Погода в городе - <span>{{location}}</span> на завтра</div>
+        <div class="current-week__block cweek-block cweek-block--ten tomorrow">
+            <div class="cweek-block__weather">
+                <div class="current-week__item cweek-item cweek-item--first" v-for="hour in hours">
+                    <div class="cweek-item__date">
+                        <span class="cdate__day-of-week">{{hour.hour}}</span>
                     </div>
-                </div>
-                <div class="current-day__separator" v-html="hour.htmlTemplatePrecip">
-                </div>
-                <div class="thday-block__precip">
-                    <div class="thday__item">
-                        <div class="thday-item__precip">{{hour.precip}}</div>
+                    <div class="cweek-item__icon">
+                        <img :src="hour.icon" alt=""/>
+                    </div>
+                    <div class="cweek-item__temp">
+                        <div class="temp__day">{{hour.temperature}}&#176;</div>
+                    </div>
+                    <div class="cweek-item__resume">
+                        {{hour.review}}
+                    </div>
+                    <div class="current-day__separator" v-html="hour.htmlTemplateWind">
+                    </div>
+                    <div class="thday-block__wind">
+                        <div class="thday__item">
+                            <div class="thday-item__wind">{{hour.wind}}</div>
+                        </div>
+                    </div>
+                    <div class="current-day__separator" v-html="hour.htmlTemplatePrecip">
+                    </div>
+                    <div class="thday-block__precip">
+                        <div class="thday__item">
+                            <div class="thday-item__precip">{{hour.precip}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,7 +40,8 @@
     export default {
         name: 'WeatherTomorrowComponent',
         props: {
-            weatherTwo: Object
+            weatherTwo: Object,
+            location: [String, Object]
         },
         methods: {
             getDayObj(id, prop) {

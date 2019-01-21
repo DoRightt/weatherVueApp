@@ -1,40 +1,45 @@
 <template>
-    <div class="current-week__block cweek-block cweek-block--ten">
-        <div class="cweek-block__weather">
-            <div class="current-week__item cweek-item" v-bind:class="{'cweek-item--first': day.isFirst}" v-for="day in days">
-                <div class="cweek-item__date">
-                    <span class="cdate__day-of-week" v-bind:class="{weekend: day.isWeekend}">{{daysName[day.day]}}</span>
-                    <span class="cdate__day-of-month">{{day.date}} {{months[day.month]}}</span>
-                </div>
-                <div class="cweek-item__icon">
-                    <img :src="day.icon" alt=""/>
-                </div>
-                <div class="cweek-item__temp">
-                    <div class="temp__day"><span v-show="day.isShow">Max</span>{{day.temperatureMax}}&#176;</div>
-                    <div class="temp__night"><span v-show="day.isShow">Min</span>{{day.temperatureMin}}&#176;</div>
-                </div>
-                <div class="current-day__separator" v-html="day.htmlTemplateWind"></div>
-                <div class="thday-block__wind">
-                    <div class="thday__item">
-                        <div class="thday-item__wind">{{day.windMax}}</div>
+    <div>
+        <div class="current-location">Погода в городе - <span>{{location}}</span> на 10 дней</div>
+        <div class="current-week__block cweek-block cweek-block--ten">
+            <div class="cweek-block__weather">
+                <div class="current-week__item cweek-item" v-bind:class="{'cweek-item--first': day.isFirst}" v-for="day in days">
+                    <div class="cweek-item__date">
+                        <span class="cdate__day-of-week" v-bind:class="{weekend: day.isWeekend}">{{daysName[day.day]}}</span>
+                        <span class="cdate__day-of-month">{{day.date}} {{months[day.month]}}</span>
                     </div>
-                </div>
-                <div class="current-day__separator" v-html="day.htmlTemplatePrecip"></div>
-                <div class="thday-block__precip">
-                    <div class="thday__item">
-                        <div class="thday-item__precip">{{day.precip}}</div>
+                    <div class="cweek-item__icon">
+                        <img :src="day.icon" alt=""/>
+                    </div>
+                    <div class="cweek-item__temp">
+                        <div class="temp__day"><span v-show="day.isShow">Max</span>{{day.temperatureMax}}&#176;</div>
+                        <div class="temp__night"><span v-show="day.isShow">Min</span>{{day.temperatureMin}}&#176;</div>
+                    </div>
+                    <div class="current-day__separator" v-html="day.htmlTemplateWind"></div>
+                    <div class="thday-block__wind">
+                        <div class="thday__item">
+                            <div class="thday-item__wind">{{day.windMax}}</div>
+                        </div>
+                    </div>
+                    <div class="current-day__separator" v-html="day.htmlTemplatePrecip"></div>
+                    <div class="thday-block__precip">
+                        <div class="thday__item">
+                            <div class="thday-item__precip">{{day.precip}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
     export default {
         name: 'WeatherTenDaysComponent',
         props: {
-            weatherTwo: Object
+            weatherTwo: Object,
+            location: [String, Object]
         },
         methods: {
             setDaysObjProp(id, prop) {
